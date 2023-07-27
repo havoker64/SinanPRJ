@@ -1,0 +1,34 @@
+﻿footer {
+    text-align: center;
+}
+
+.ntitle {
+    text-align: center;
+}
+
+.US {
+    width: 475px;
+}
+
+.p-3 {
+    min-height: 120px;
+}
+
+.bt-container {
+    text-align: center;
+}
+
+.resultado {
+    width: 340px;
+}
+
+.table {
+    display:block;
+    overflow-x:scroll;
+}
+
+.td{
+    width:200px;
+}
+
+

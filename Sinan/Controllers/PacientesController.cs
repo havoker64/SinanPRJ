@@ -1,0 +1,163 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Sinan.Data;
+using Sinan.Models;
+
+namespace Sinan.Controllers
+{
+    public class PacientesController : Controller
+    {
+        private readonly AppDBcontext _context;
+
+        public PacientesController(AppDBcontext context)
+        {
+            _context = context;
+        }
+
+        // GET: Pacientes
+        public async Task<IActionResult> pIndex()
+        {
+              return _context.Pacientes != null ? 
+                          View(await _context.Pacientes.ToListAsync()) :
+                          Problem("Entity set 'AppDBcontext.Pacientes'  is null.");
+        }
+
+        // GET: Pacientes/Details/5
+        public async Task<IActionResult> pDetails(int? id)
+        {
+            if (id == null || _context.Pacientes == null)
+            {
+                return NotFound();
+            }
+
+            var paciente = await _context.Pacientes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (paciente == null)
+            {
+                return NotFound();
+            }
+
+            return View(paciente);
+        }
+
+        // GET: Pacientes/Create
+        public IActionResult pCreate()
+        {
+            return View();
+        }
+
+        // POST: Pacientes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> pCreate([Bind("Id,name,birthdate,schooling,suscard,momname,ancestry,uf,municipality,address,phone,cep,zone")] Paciente paciente)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(paciente);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(paciente);
+        }
+
+        // GET: Pacientes/Edit/5
+        public async Task<IActionResult> pEdit(int? id)
+        {
+            if (id == null || _context.Pacientes == null)
+            {
+                return NotFound();
+            }
+
+            var paciente = await _context.Pacientes.FindAsync(id);
+            if (paciente == null)
+            {
+                return NotFound();
+            }
+            return View(paciente);
+        }
+
+        // POST: Pacientes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> pEdit(int id, [Bind("Id,name,birthdate,schooling,suscard,momname,ancestry,uf,municipality,address,phone,cep,zone")] Paciente paciente)
+        {
+            if (id != paciente.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(paciente);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PacienteExists(paciente.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(paciente);
+        }
+
+        // GET: Pacientes/Delete/5
+        public async Task<IActionResult> pDelete(int? id)
+        {
+            if (id == null || _context.Pacientes == null)
+            {
+                return NotFound();
+            }
+
+            var paciente = await _context.Pacientes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (paciente == null)
+            {
+                return NotFound();
+            }
+
+            return View(paciente);
+        }
+
+        // POST: Pacientes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_context.Pacientes == null)
+            {
+                return Problem("Entity set 'AppDBcontext.Pacientes'  is null.");
+            }
+            var paciente = await _context.Pacientes.FindAsync(id);
+            if (paciente != null)
+            {
+                _context.Pacientes.Remove(paciente);
+            }
+            
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool PacienteExists(int id)
+        {
+          return (_context.Pacientes?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+    }
+}
