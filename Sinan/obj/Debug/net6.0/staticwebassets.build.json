@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s46Q/0hWJR4n44g2pFvPKlGbsQlBbLch+p7aTGwR/RA=",
+  "Hash": "k9moAUYz1Ekzhk0AUKHiUmPHNc8iUF2WSveGwe5TMUk=",
   "Source": "Sinan",
   "BasePath": "_content/Sinan",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\icons\\brasao1.png",
+      "SourceId": "Sinan",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\",
+      "BasePath": "_content/Sinan",
+      "RelativePath": "icons/brasao1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons\\brasao1.png"
     },
     {
       "Identity": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\js\\site.js",

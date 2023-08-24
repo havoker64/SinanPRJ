@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Sinan.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Registros de Pacientes";
+}
+
+<h1 class="text-center">Registros de Pacientes</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Data de nascimento
+            </th>
+            <th>
+                Escolaridade
+            </th>
+            <th>
+                SUS
+            </th>
+            <th>
+                Nome da mãe
+            </th>
+            <th>
+                Ancestralidade
+            </th>
+            <th>
+                Sexo
+            </th>
+            <th>
+                Estatura
+            </th>
+            <th>
+                Peso
+            </th>
+            <th>
+                UF
+            </th>
+            <th>
+                Município
+            </th>
+            <th>
+                Bairro
+            </th>
+            <th>
+                Endereço
+            </th>
+            <th>
+                Telefone
+            </th>
+            <th>
+                CEP
+            </th>
+            <th>
+                Zone
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @item.Idpacient
+                </td>
+                <td>
+                    @item.name
+                </td>
+                <td>
+                    @item.birthdate.ToShortDateString()
+                </td>
+                <td>
+                    @item.schooling
+                </td>
+                <td>
+                    @item.suscard
+                </td>
+                <td>
+                    @item.momname
+                </td>
+                <td>
+                    @item.ancestry
+                </td>
+                <td>
+                    @item.gender
+                </td>
+                <td>
+                    @item.height
+                </td>
+                <td>
+                    @item.weight
+                </td>
+                <td>
+                    @item.uf
+                </td>
+                <td>
+                    @item.municipality
+                </td>
+                <td>
+                    @item.pneighborhood
+                </td>
+                <td>
+                    @item.address
+                </td>
+                <td>
+                    @item.phone
+                </td>
+                <td>
+                    @item.cep
+                </td>
+                <td>
+                    @item.zone
+                </td>
+                <td class="btn-group-vertical text-center" role="group">
+                    @Html.ActionLink("Notificação", "Create", "Notificacoes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
+                    @Html.ActionLink("Detalhes", "Details", "Pacientes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
+                    @Html.ActionLink("Editar", "Edit", "Pacientes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
+                    @Html.ActionLink("Excluir", "Delete", "Pacientes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
+                </td>
+        </tr>
+}
+        <a class="btn btn-success" asp-action="Create">Novo</a>
+    </tbody>
+</table>

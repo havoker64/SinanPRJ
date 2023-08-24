@@ -1,0 +1,158 @@
+﻿@model Sinan.Models.Paciente
+
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h1>Cadastrar Novo Paciente</h1>
+
+<hr />
+
+<form asp-action="Create">
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-md-4">
+            <label asp-for="name" class="control-label"></label>
+            <input asp-for="name" class="form-control" />
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="birthdate" class="control-label"></label>
+            <input asp-for="birthdate" class="form-control" />
+            <span asp-validation-for="birthdate" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="schooling" class="control-label"></label>
+            <select asp-for="schooling" class="form-control">
+                <option value="Analfabeto">Analfabeto</option>
+                <option value="1° a 4° série incompleta do EF(antigo primário ou 1° grau)">1° a 4° série incompleta do EF(antigo primário ou 1° grau)</option>
+                <option value="4° série completa do EF(antigo primário ou 1° grau)">4° série completa do EF(antigo primário ou 1° grau)</option>
+                <option value="5° a 8° série incompleta do EF(antigo ginásio ou 1° grau)">5° a 8° série incompleta do EF(antigo ginásio ou 1° grau)</option>
+                <option value="Ensino fundamental completo(antigo ginásio ou 1° grau)">Ensino fundamental completo(antigo ginásio ou 1° grau)</option>
+                <option value="Ensino médio incompleto(antigo colegial ou 2° grau)">Ensino médio incompleto(antigo colegial ou 2° grau)</option>
+                <option value="Ensino médio completo(antigo colegial ou 2° grau)">Ensino médio completo(antigo colegial ou 2° grau)</option>
+                <option value="Educação superior incompleto">Educação superior incompleto</option>
+                <option value="Educação superior completo">Educação superior completo</option>
+                <option value="Menor de 6 anos">Menor de 6 anos</option>
+            </select>
+            <span asp-validation-for="schooling" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="suscard" class="control-label"></label>
+            <input asp-for="suscard" class="form-control" />
+            <span asp-validation-for="suscard" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="momname" class="control-label"></label>
+            <input asp-for="momname" class="form-control" />
+            <span asp-validation-for="momname" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="ancestry" class="control-label"></label>
+            <select asp-for="ancestry" class="form-select">
+                <option value="Branca">Branca</option>
+                <option value="Preta">Preta</option>
+                <option value="Amarela">Amarela</option>
+                <option value="Parda">Parda</option>
+                <option value="Indígena">Indígena</option>
+            </select>
+            <span asp-validation-for="ancestry" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="gender" class="control-label"></label>
+            <select asp-for="gender" class="form-control">
+                <option value="Maculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outro">Outro</option>
+            </select>
+            <span asp-validation-for="gender" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="height" class="control-label"></label>
+            <input asp-for="height" class="form-control" />
+            <span asp-validation-for="height" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="weight" class="control-label"></label>
+            <input asp-for="weight" class="form-control" />
+            <span asp-validation-for="weight" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="uf" class="control-label"></label>
+            <select asp-for="uf" class="form-select">
+                <option selected></option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AM">AM</option>
+                <option value="AP">AP</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MG">MG</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="PR">PR</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SE">SE</option>
+                <option value="SP">SP</option>
+                <option value="TO">TO</option>
+            </select>
+            <span asp-validation-for="uf" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="municipality" class="control-label"></label>
+            <input asp-for="municipality" class="form-control" />
+            <span asp-validation-for="municipality" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="pneighborhood" class="control-label"></label>
+            <input asp-for="pneighborhood" class="form-control" />
+            <span asp-validation-for="pneighborhood" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="address" class="control-label"></label>
+            <input asp-for="address" class="form-control" />
+            <span asp-validation-for="address" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="phone" class="control-label"></label>
+            <input asp-for="phone" class="form-control" />
+            <span asp-validation-for="phone" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="cep" class="control-label"></label>
+            <input asp-for="cep" class="form-control" />
+            <span asp-validation-for="cep" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="zone" class="control-label"></label>
+            <select asp-for="zone" class="form-select">
+                <option value="Urbana">Urbana</option>
+                <option value="Rural">Rural</option>
+                <option value="Periurbana">Periurbana</option>
+            </select>
+            <span asp-validation-for="zone" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <div class="form-group btn-group" role="group">
+        <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        <input type="submit" value="Cadastrar" class="btn btn-success" />
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

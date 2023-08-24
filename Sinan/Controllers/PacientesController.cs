@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sinan.Data;
 using Sinan.Models;
+using Sinan.ViewModels;
 
 namespace Sinan.Controllers
 {
@@ -19,24 +15,16 @@ namespace Sinan.Controllers
             _context = context;
         }
 
-        // GET: Pacientes
-        public async Task<IActionResult> pIndex()
+        public async Task<IActionResult> Index()
         {
-              return _context.Pacientes != null ? 
-                          View(await _context.Pacientes.ToListAsync()) :
-                          Problem("Entity set 'AppDBcontext.Pacientes'  is null.");
+            var pacientes = await _context.Pacientes.ToListAsync();
+
+            return View(pacientes);
         }
 
-        // GET: Pacientes/Details/5
-        public async Task<IActionResult> pDetails(int? id)
+        public async Task<IActionResult> Details(long Idpacient)
         {
-            if (id == null || _context.Pacientes == null)
-            {
-                return NotFound();
-            }
-
-            var paciente = await _context.Pacientes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var paciente = await _context.Pacientes.FirstOrDefaultAsync(m => m.Idpacient == Idpacient);
             if (paciente == null)
             {
                 return NotFound();
@@ -45,119 +33,199 @@ namespace Sinan.Controllers
             return View(paciente);
         }
 
-        // GET: Pacientes/Create
-        public IActionResult pCreate()
+        public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pacientes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> pCreate([Bind("Id,name,birthdate,schooling,suscard,momname,ancestry,uf,municipality,address,phone,cep,zone")] Paciente paciente)
+        public async Task<IActionResult> Create(Paciente paciente)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(paciente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                return RedirectToAction("Index");
             }
+
             return View(paciente);
         }
 
-        // GET: Pacientes/Edit/5
-        public async Task<IActionResult> pEdit(int? id)
+        public async Task<IActionResult> Edit(long Idpacient)
         {
-            if (id == null || _context.Pacientes == null)
-            {
-                return NotFound();
-            }
-
-            var paciente = await _context.Pacientes.FindAsync(id);
+            var paciente = await _context.Pacientes.FindAsync(Idpacient);
             if (paciente == null)
-            {
                 return NotFound();
-            }
+
             return View(paciente);
         }
 
-        // POST: Pacientes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> pEdit(int id, [Bind("Id,name,birthdate,schooling,suscard,momname,ancestry,uf,municipality,address,phone,cep,zone")] Paciente paciente)
+        public async Task<IActionResult> Edit(Paciente paciente)
         {
-            if (id != paciente.Id)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(paciente);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PacienteExists(paciente.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(paciente);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Index");
             }
+
             return View(paciente);
         }
 
-        // GET: Pacientes/Delete/5
-        public async Task<IActionResult> pDelete(int? id)
+        public async Task<IActionResult> Delete(long Idpacient)
         {
-            if (id == null || _context.Pacientes == null)
-            {
-                return NotFound();
-            }
-
-            var paciente = await _context.Pacientes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var paciente = await _context.Pacientes.FirstOrDefaultAsync(m => m.Idpacient == Idpacient);
             if (paciente == null)
-            {
                 return NotFound();
-            }
 
             return View(paciente);
         }
 
-        // POST: Pacientes/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(long Idpacient)
         {
-            if (_context.Pacientes == null)
-            {
-                return Problem("Entity set 'AppDBcontext.Pacientes'  is null.");
-            }
-            var paciente = await _context.Pacientes.FindAsync(id);
+            var paciente = await _context.Pacientes.FindAsync(Idpacient);
             if (paciente != null)
             {
                 _context.Pacientes.Remove(paciente);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction("Index");
         }
 
-        private bool PacienteExists(int id)
+        public async Task<IActionResult> Export(long Idpacient, long Idnotify)
         {
-          return (_context.Pacientes?.Any(e => e.Id == id)).GetValueOrDefault();
+            var pacient = await _context.Pacientes.FindAsync(Idpacient);
+            var notify = await _context.Notificacoes.FindAsync(Idnotify);
+
+            var viewModel = new Exports
+            {
+                Idpacient = pacient.Idpacient,
+                name = pacient.name,
+                birthdate = pacient.birthdate,
+                schooling = pacient.schooling,
+                suscard = pacient.suscard,
+                momname = pacient.momname,
+                ancestry = pacient.ancestry,
+                gender = pacient.gender,
+                height = pacient.height,
+                weight = pacient.weight,
+                uf = pacient.uf,
+                municipality = pacient.municipality,
+                pneighborhood = pacient.pneighborhood,
+                address = pacient.address,
+                phone = pacient.phone,
+                cep = pacient.cep,
+                zone = pacient.zone,
+                Idnotify = notify.Idnotify,
+                Agravo = notify.Agravo,
+                datenotify = notify.datenotify,
+                us = notify.us,
+                datesynptoms = notify.datesynptoms,
+                pregnant = notify.pregnant,
+                dateinv = notify.dateinv,
+                occupation = notify.occupation,
+                fever = notify.fever,
+                myalgia = notify.myalgia,
+                headache = notify.headache,
+                rash = notify.rash,
+                vomit = notify.vomit,
+                nausea = notify.nausea,
+                backPain = notify.backPain,
+                conjunctivitis = notify.conjunctivitis,
+                arthritis = notify.arthritis,
+                severeArthralgia = notify.severeArthralgia,
+                petechiae = notify.petechiae,
+                leukopenia = notify.leukopenia,
+                pTieproof = notify.pTieproof,
+                retroorbitalPain = notify.retroorbitalPain,
+                diabetes = notify.diabetes,
+                hDiseases = notify.hDiseases,
+                liverDiseases = notify.liverDiseases,
+                ckDisease = notify.ckDisease,
+                hypertension = notify.hypertension,
+                paDisease = notify.paDisease,
+                aiDisease = notify.aiDisease,
+                cfsCollecting = notify.cfsCollecting,
+                cfsStatus = notify.cfsStatus,
+                cssCollecting = notify.cssCollecting,
+                cssStatus = notify.cssStatus,
+                prntCollecting = notify.prntCollecting,
+                prntStatus = notify.prntStatus,
+                dsCollecting = notify.dsCollecting,
+                dsStatus = notify.dsStatus,
+                ns1Collecting = notify.ns1Collecting,
+                ns1Status = notify.ns1Status,
+                insCollecting = notify.insCollecting,
+                insStatus = notify.insStatus,
+                rtpcrCollecting = notify.rtpcrCollecting,
+                rtpcrStatus = notify.rtpcrStatus,
+                serotype = notify.serotype,
+                srtSelect = notify.srtSelect,
+                pHypotension = notify.pHypotension,
+                plateletsFall = notify.plateletsFall,
+                pVomiting = notify.pVomiting,
+                scaPain = notify.scaPain,
+                loIrritability = notify.loIrritability,
+                moBleeding = notify.moBleeding,
+                piHematocrit = notify.piHematocrit,
+                alarmingDate = notify.alarmingDate,
+                hge2cm = notify.hge2cm,
+                iLiquids = notify.iLiquids,
+                wuPulse = notify.wuPulse,
+                convergentbp = notify.convergentbp,
+                crTime = notify.crTime,
+                afrInsuficiency = notify.afrInsuficiency,
+                tachycardia = notify.tachycardia,
+                cExtremities = notify.cExtremities,
+                lsHypotension = notify.lsHypotension,
+                hematemesis = notify.hematemesis,
+                melena = notify.melena,
+                bMetrorrhagia = notify.bMetrorrhagia,
+                cnsBleeding = notify.cnsBleeding,
+                astalt = notify.astalt,
+                myocarditis = notify.myocarditis,
+                aConciousness = notify.aConciousness,
+                aOrgans = notify.aOrgans,
+                organName = notify.organName,
+                sinDateinit = notify.sinDateinit,
+                patientClass = notify.patientClass,
+                recentTravel = notify.recentTravel,
+                travelPlace = notify.travelPlace,
+                goTravel = notify.goTravel,
+                backTravel = notify.backTravel,
+                visitor = notify.visitor,
+                eeArea = notify.eeArea,
+                areaKnlg = notify.areaKnlg,
+                pMedication = notify.pMedication,
+                medName = notify.medName,
+                pEncaminhation = notify.pEncaminhation,
+                ePlace = notify.ePlace,
+                motive = notify.motive,
+                iName = notify.iName,
+                iUs = notify.iUs,
+                iFunction = notify.iFunction,
+                hospitalization = notify.hospitalization,
+                hospDate = notify.hospDate,
+                hospUF = notify.hospUF,
+                hospMun = notify.hospMun,
+                hospName = notify.hospName,
+                caseMun = notify.caseMun,
+                munUf = notify.munUf,
+                munCon = notify.munCon,
+                neighborhood = notify.neighborhood,
+                conClass = notify.conClass,
+                criterion = notify.criterion,
+                caseEvo = notify.caseEvo,
+                closingDate = notify.closingDate
+            };
+
+            return View(viewModel);
         }
     }
 }

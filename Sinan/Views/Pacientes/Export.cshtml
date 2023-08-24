@@ -1,0 +1,969 @@
+﻿@model Sinan.ViewModels.Exports
+
+@{
+    ViewData["Title"] = "Exportar";
+}
+
+<h1>Exportar</h1>
+
+<h4>Paciente</h4>
+<hr />
+ 
+<form asp-action="Export">
+    <dl class="row">
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.birthdate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.birthdate)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.schooling)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.schooling)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.suscard)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.suscard)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.momname)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.momname)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.ancestry)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ancestry)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.gender)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.gender)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.height)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.height)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.weight)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.weight)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.uf)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.uf)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.municipality)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.municipality)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.pneighborhood)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.pneighborhood)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cep)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cep)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.zone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.zone)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.Idpacient)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Idpacient)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.Agravo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Agravo)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.datenotify)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.datenotify)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.us)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.us)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.datesynptoms)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.datesynptoms)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.pregnant)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.pregnant)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.dateinv)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.dateinv)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.occupation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.occupation)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.fever)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.fever)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.myalgia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.myalgia)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.headache)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.headache)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.rash)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.rash)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.vomit)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.vomit)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.nausea)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nausea)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.backPain)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.backPain)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.conjunctivitis)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.conjunctivitis)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.arthritis)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.arthritis)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.severeArthralgia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.severeArthralgia)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.petechiae)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.petechiae)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.leukopenia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.leukopenia)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.pTieproof)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.pTieproof)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.nTieproof)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nTieproof)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.retroorbitalPain)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.retroorbitalPain)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.diabetes)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.diabetes)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hDiseases)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hDiseases)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.liverDiseases)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.liverDiseases)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.ckDisease)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ckDisease)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hypertension)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hypertension)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.paDisease)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.paDisease)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.aiDisease)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.aiDisease)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cfsCollecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cfsCollecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cfsStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cfsStatus)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cssCollecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cssCollecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cssStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cssStatus)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.prntCollecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.prntCollecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.prntStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.prntStatus)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.dsCollecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.dsCollecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.dsStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.dsStatus)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.ns1Collecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ns1Collecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.ns1Status)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ns1Status)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.insCollecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.insCollecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.insStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.insStatus)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.rtpcrCollecting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.rtpcrCollecting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.rtpcrStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.rtpcrStatus)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.serotype)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.serotype)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.srtSelect)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.srtSelect)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.pHypotension)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.pHypotension)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.plateletsFall)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.plateletsFall)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.pVomiting)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.pVomiting)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.scaPain)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.scaPain)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.loIrritability)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.loIrritability)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.moBleeding)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.moBleeding)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.piHematocrit)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.piHematocrit)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.alarmingDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.alarmingDate)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hge2cm)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hge2cm)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.iLiquids)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iLiquids)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.wuPulse)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.wuPulse)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.convergentbp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.convergentbp)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.crTime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.crTime)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.afrInsuficiency)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.afrInsuficiency)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.tachycardia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.tachycardia)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cExtremities)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cExtremities)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.lsHypotension)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.lsHypotension)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hematemesis)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hematemesis)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.melena)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.melena)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.bMetrorrhagia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.bMetrorrhagia)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cnsBleeding)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cnsBleeding)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.astalt)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.astalt)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.myocarditis)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.myocarditis)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.aConciousness)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.aConciousness)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.aOrgans)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.aOrgans)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.organName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.organName)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.sinDateinit)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.sinDateinit)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.patientClass)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.patientClass)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.recentTravel)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.recentTravel)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.travelPlace)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.travelPlace)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.goTravel)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.goTravel)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.backTravel)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.backTravel)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.visitor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.visitor)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.eeArea)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.eeArea)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.areaKnlg)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.areaKnlg)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.pMedication)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.pMedication)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.medName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.medName)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.pEncaminhation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.pEncaminhation)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.ePlace)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ePlace)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.motive)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.motive)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.iName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iName)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.iUs)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iUs)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.iFunction)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.iFunction)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hospitalization)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hospitalization)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hospDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hospDate)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hospUF)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hospUF)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hospMun)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hospMun)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.hospName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.hospName)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.caseMun)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.caseMun)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.munUf)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.munUf)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.munCon)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.munCon)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.neighborhood)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.neighborhood)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.conClass)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.conClass)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.criterion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.criterion)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.caseEvo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.caseEvo)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.closingDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.closingDate)
+            </dd>
+        </div>
+    </dl>
+    <br />
+    <div class="form-group btn-group" role="group">
+        <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        <input type="submit" disabled="true" value="Save" class="btn btn-success" />
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

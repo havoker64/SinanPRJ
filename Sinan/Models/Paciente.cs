@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Sinan.Models
@@ -7,10 +8,10 @@ namespace Sinan.Models
     public class Paciente
     {
         [Display(Name="Código")]
-        [Column("Id")]
+        [Column("Idpacient")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public long Idpacient { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Nome")]
@@ -30,7 +31,7 @@ namespace Sinan.Models
         [Required]
         [Display(Name = "Cartão do SUS")]
         [Column("suscard")]
-        public long suscard { get; set; }
+        public string suscard { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name ="Nome da mãe")]
@@ -43,6 +44,21 @@ namespace Sinan.Models
         public string ancestry { get; set; }
         //----------------------------------------------------------------------
         [Required]
+        [Display(Name = "Sexo")]
+        [Column("gender")]
+        public string gender { get; set; }
+        //----------------------------------------------------------------------
+        [Required]
+        [Display(Name = "Altura(cm)")]
+        [Column("height")]
+        public int height { get; set; }
+        //----------------------------------------------------------------------
+        [Required]
+        [Display(Name = "Peso(gramas)")]
+        [Column("weight")]
+        public int weight { get; set; }
+        //----------------------------------------------------------------------
+        [Required]
         [Display(Name ="UF")]
         [Column("uf")]
         public string uf { get; set; }
@@ -52,6 +68,12 @@ namespace Sinan.Models
         [Column("municipality")]
         public string municipality { get; set; }
         //----------------------------------------------------------------------
+        [Required]
+        [Display(Name = "Bairro")]
+        [Column("pneighborhood")]
+        public string pneighborhood { get; set; }
+        //----------------------------------------------------------------------
+        [Required]
         [Display(Name = "Endereço(Rua e número da residência).")]
         [Column("address")]
         public string address { get; set; }
@@ -64,11 +86,12 @@ namespace Sinan.Models
         [Required]
         [Display(Name = "CEP")]
         [Column("cep")]
-        public long cep { get; set; }
+        public string cep { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Zona")]
         [Column("zone")]
         public string zone { get; set; }
+
     }
 }

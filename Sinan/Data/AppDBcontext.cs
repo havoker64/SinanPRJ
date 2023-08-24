@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sinan.Models;
+using System.Composition;
 
 namespace Sinan.Data
 {

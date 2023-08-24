@@ -1,0 +1,670 @@
+﻿@model Sinan.Models.Notificacao
+
+@{
+    ViewData["Title"] = "Novo registro de Notificação";
+}
+
+<h1>Criar nova notificação</h1>
+<hr />
+<form asp-action="Create">
+    <div class="col-md-2">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" class="form-control" asp-for="Idpacient" value="@ViewBag.Idpacient" />
+    </div>
+    <h2>Dados Gerais</h2>
+
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label asp-for="Agravo" class="control-label"></label>
+            <select asp-for="Agravo" class="form-control">
+                <option value="A90-Dengue">Dengue</option>
+                <option value="A92.0-Chikungunya">Chikungunya</option>
+            </select>
+            <span asp-validation-for="Agravo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="datenotify" class="control-label"></label>
+            <input asp-for="datenotify" class="form-control" />
+            <span asp-validation-for="datenotify" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="us" class="control-label"></label>
+            <input asp-for="us" class="form-control" />
+            <span asp-validation-for="us" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="datesynptoms" class="control-label"></label>
+            <input asp-for="datesynptoms" class="form-control" />
+            <span asp-validation-for="datesynptoms" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Notificação Individual e Dados da Investigação</h2>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label asp-for="pregnant" class="control-label"></label>
+            <select asp-for="pregnant" class="form-control">
+                <option value="Não se aplica">Não se aplica</option>
+                <option value="1° Trimestre">1° trimestre</option>
+                <option value="2° Trimestre">2° trimestre</option>
+                <option value="3° Trimestre">3° trimestre</option>
+                <option value="Idade gestacional ignorada">Idade gestacional ignorada</option>
+                <option value="Não">Não</option>
+            </select>
+            <span asp-validation-for="pregnant" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="dateinv" class="control-label"></label>
+            <input asp-for="dateinv" class="form-control" />
+            <span asp-validation-for="dateinv" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="occupation" class="control-label"></label>
+            <input asp-for="occupation" class="form-control" />
+            <span asp-validation-for="occupation" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Dados clínicos e laboratoriais</h2>
+
+    <div class="row">
+
+        <h4>Sinais clínicos</h4>
+
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="fever">
+            <label class="form-check-label" asp-for="fever"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="myalgia">
+            <label class="form-check-label" asp-for="myalgia"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="headache">
+            <label class="form-check-label" asp-for="headache"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="rash">
+            <label class="form-check-label" asp-for="rash"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="vomit">
+            <label class="form-check-label" asp-for="vomit"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="nausea">
+            <label class="form-check-label" asp-for="nausea"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="backPain">
+            <label class="form-check-label" asp-for="backPain"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="conjunctivitis">
+            <label class="form-check-label" asp-for="conjunctivitis"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="arthritis">
+            <label class="form-check-label" asp-for="arthritis"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="severeArthralgia">
+            <label class="form-check-label" asp-for="severeArthralgia"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="petechiae">
+            <label class="form-check-label" asp-for="petechiae"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="leukopenia">
+            <label class="form-check-label" asp-for="leukopenia"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="pTieproof">
+            <label class="form-check-label" asp-for="pTieproof"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="nTieproof">
+            <label class="form-check-label" asp-for="nTieproof"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="retroorbitalPain">
+            <label class="form-check-label" asp-for="retroorbitalPain"></label>
+        </div>
+    </div>
+
+    <div class="row">
+        <h4>Doenças pré-existentes</h4>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="diabetes">
+            <label class="form-check-label" asp-for="diabetes"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="hDiseases">
+            <label class="form-check-label" asp-for="hDiseases"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="liverDiseases">
+            <label class="form-check-label" asp-for="liverDiseases"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="ckDisease">
+            <label class="form-check-label" asp-for="ckDisease"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="hypertension">
+            <label class="form-check-label" asp-for="hypertension"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="paDisease">
+            <label class="form-check-label" asp-for="paDisease"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="aiDisease">
+            <label class="form-check-label" asp-for="aiDisease"></label>
+        </div>
+    </div>
+
+
+    <br/><h2>Dados Laboratoriais</h2>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="cfsCollecting" class="control-label"></label>
+            <input asp-for="cfsCollecting" class="form-control" />
+            <span asp-validation-for="cfsCollecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="cfsStatus" class="control-label"></label>
+            <select asp-for="cfsStatus" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Reagente">Reagente</option>
+                <option value="Não Reagente">Não Reagente</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="cfsStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="cssCollecting" class="control-label"></label>
+            <input asp-for="cssCollecting" class="form-control" />
+            <span asp-validation-for="cssCollecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="cssStatus" class="control-label"></label>
+            <select asp-for="cssStatus" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Reagente">Reagente</option>
+                <option value="Não Reagente">Não Reagente</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="cssStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="prntCollecting" class="control-label"></label>
+            <input asp-for="prntCollecting" class="form-control" />
+            <span asp-validation-for="prntCollecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="prntStatus" class="control-label"></label>
+            <select asp-for="prntStatus" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Reagente">Reagente</option>
+                <option value="Não Reagente">Não Reagente</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="prntStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="dsCollecting" class="control-label"></label>
+            <input asp-for="dsCollecting" class="form-control" />
+            <span asp-validation-for="dsCollecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="dsStatus" class="control-label"></label>
+            <select asp-for="dsStatus" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Positivo">Positivo</option>
+                <option value="Negativo">Negativo</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="dsStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="ns1Collecting" class="control-label"></label>
+            <input asp-for="ns1Collecting" class="form-control" />
+            <span asp-validation-for="ns1Collecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="ns1Status" class="control-label"></label>
+            <select asp-for="ns1Status" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Positivo">Positivo</option>
+                <option value="Negativo">Negativo</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="ns1Status" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="insCollecting" class="control-label"></label>
+            <input asp-for="insCollecting" class="form-control" />
+            <span asp-validation-for="insCollecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="insStatus" class="control-label"></label>
+            <select asp-for="insStatus" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Positivo">Positivo</option>
+                <option value="Negativo">Negativo</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="insStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="rtpcrCollecting" class="control-label"></label>
+            <input asp-for="rtpcrCollecting" class="form-control" />
+            <span asp-validation-for="rtpcrCollecting" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="rtpcrStatus" class="control-label"></label>
+            <select asp-for="rtpcrStatus" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Positivo">Positivo</option>
+                <option value="Negativo">Negativo</option>
+                <option value="Inconclusivo">Inconclusivo</option>
+            </select>
+            <span asp-validation-for="rtpcrStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="serotype" class="control-label"></label>
+            <select asp-for="serotype" class="form-control">
+                <option value="Não Realizado">Não Realizado</option>
+                <option value="Realizado">Realizado</option>
+            </select>
+            <span asp-validation-for="serotype" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="srtSelect" class="control-label"></label>
+            <select asp-for="dsStatus" class="form-control">
+                <option selected></option>
+                <option value="DENV 1">DENV 1</option>
+                <option value="DENV 2">DENV 2</option>
+                <option value="DENV 3">DENV 3</option>
+                <option value="DENV 4">DENV 4</option>
+            </select>
+            <span asp-validation-for="srtSelect" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Dengue com sinais de alarme</h2>
+
+    <div class="row">
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="pHypotension">
+            <label class="form-check-label" asp-for="pHypotension"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="plateletsFall">
+            <label class="form-check-label" asp-for="plateletsFall"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="pVomiting">
+            <label class="form-check-label" asp-for="pVomiting"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="scaPain">
+            <label class="form-check-label" asp-for="scaPain"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="loIrritability">
+            <label class="form-check-label" asp-for="loIrritability"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="hge2cm">
+            <label class="form-check-label" asp-for="hge2cm"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="iLiquids">
+            <label class="form-check-label" asp-for="iLiquids"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="moBleeding">
+            <label class="form-check-label" asp-for="moBleeding"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="piHematocrit">
+            <label class="form-check-label" asp-for="piHematocrit"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="alarmingDate" class="control-label"></label>
+            <input asp-for="alarmingDate" class="form-control" />
+            <span asp-validation-for="alarmingDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Dengue grave</h2>
+
+    <div class="row">
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="wuPulse">
+            <label class="form-check-label" asp-for="wuPulse"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="convergentbp">
+            <label class="form-check-label" asp-for="convergentbp"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="crTime">
+            <label class="form-check-label" asp-for="crTime"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="afrInsuficiency">
+            <label class="form-check-label" asp-for="afrInsuficiency"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="tachycardia">
+            <label class="form-check-label" asp-for="tachycardia"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="cExtremities">
+            <label class="form-check-label" asp-for="cExtremities"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="lsHypotension">
+            <label class="form-check-label" asp-for="lsHypotension"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="hematemesis">
+            <label class="form-check-label" asp-for="hematemesis"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="melena">
+            <label class="form-check-label" asp-for="melena"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="bMetrorrhagia">
+            <label class="form-check-label" asp-for="bMetrorrhagia"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="cnsBleeding">
+            <label class="form-check-label" asp-for="cnsBleeding"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="astalt">
+            <label class="form-check-label" asp-for="astalt"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="myocarditis">
+            <label class="form-check-label" asp-for="myocarditis"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="aConciousness">
+            <label class="form-check-label" asp-for="aConciousness"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="aOrgans">
+            <label class="form-check-label" asp-for="aOrgans"></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="organName" class="control-label"></label>
+            <input asp-for="organName" class="form-control" />
+            <span asp-validation-for="organName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="sinDateinit" class="control-label"></label>
+            <input asp-for="sinDateinit" class="form-control" />
+            <span asp-validation-for="sinDateinit" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Informações complementares</h2>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="patientClass" class="control-label"></label>
+            <select asp-for="patientClass" class="form-control">
+                <option value="Grupo A">Grupo A</option>
+                <option value="Grupo B">Grupo B</option>
+                <option value="Grupo C">Grupo C</option>
+                <option value="Grupo D">Grupo D</option>
+            </select>
+            <span asp-validation-for="patientClass" class="text-danger"></span>
+        </div>
+        <div class="form-check form- group form-switch col-md-6">
+            <input class="form-check-input" type="checkbox" asp-for="recentTravel">
+            <label class="form-check-label" asp-for="recentTravel"></label>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="travelPlace" class="control-label"></label>
+            <input asp-for="travelPlace" class="form-control" />
+            <span asp-validation-for="travelPlace" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="goTravel" class="control-label"></label>
+            <input asp-for="goTravel" class="form-control" />
+            <span asp-validation-for="goTravel" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="backTravel" class="control-label"></label>
+            <input asp-for="backTravel" class="form-control" />
+            <span asp-validation-for="backTravel" class="text-danger"></span>
+        </div>
+        <div class="form-check form- group form-switch col-md-6">
+            <input class="form-check-input" type="checkbox" asp-for="visitor">
+            <label class="form-check-label" asp-for="visitor"></label>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="eeArea" class="control-label"></label>
+            <input asp-for="eeArea" class="form-control" />
+            <span asp-validation-for="eeArea" class="text-danger"></span>
+        </div>
+        <div class="form-check form- group form-switch col-md-6">
+            <input class="form-check-input" type="checkbox" asp-for="areaKnlg">
+            <label class="form-check-label" asp-for="areaKnlg"></label>
+        </div>
+        <div class="form-check form- group form-switch col-md-6">
+            <input class="form-check-input" type="checkbox" asp-for="pMedication">
+            <label class="form-check-label" asp-for="pMedication"></label>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="medName" class="control-label"></label>
+            <input asp-for="medName" class="form-control" />
+            <span asp-validation-for="medName" class="text-danger"></span>
+        </div>
+        <div class="form-check form- group form-switch col-md-6">
+            <input class="form-check-input" type="checkbox" asp-for="pEncaminhation">
+            <label class="form-check-label" asp-for="pEncaminhation"></label>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="ePlace" class="control-label"></label>
+            <input asp-for="ePlace" class="form-control" />
+            <span asp-validation-for="ePlace" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="motive" class="control-label"></label>
+            <input asp-for="motive" class="form-control" />
+            <span asp-validation-for="motive" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Dados do investigador</h2>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label asp-for="iName" class="control-label"></label>
+            <input asp-for="iName" class="form-control" />
+            <span asp-validation-for="iName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="iUs" class="control-label"></label>
+            <input asp-for="iUs" class="form-control" />
+            <span asp-validation-for="iUs" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="iFunction" class="control-label"></label>
+            <input asp-for="iFunction" class="form-control" />
+            <span asp-validation-for="iFunction" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Hospitalização</h2>
+
+    <div class="row">
+        <div class="form-check form- group form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="hospitalization">
+            <label class="form-check-label" asp-for="hospitalization"></label>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="hospDate" class="control-label"></label>
+            <input asp-for="hospDate" class="form-control" />
+            <span asp-validation-for="hospDate" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="hospUF" class="control-label"></label>
+            <select asp-for="hospUF" class="form-control">
+                <option selected></option>
+                <option value="1">AC</option>
+                <option value="2">AL</option>
+                <option value="3">AM</option>
+                <option value="4">AP</option>
+                <option value="5">BA</option>
+                <option value="6">CE</option>
+                <option value="7">DF</option>
+                <option value="8">ES</option>
+                <option value="9">GO</option>
+                <option value="10">MA</option>
+                <option value="11">MG</option>
+                <option value="12">MS</option>
+                <option value="13">MT</option>
+                <option value="14">PA</option>
+                <option value="15">PB</option>
+                <option value="16">PE</option>
+                <option value="17">PI</option>
+                <option value="18">PR</option>
+                <option value="19">RJ</option>
+                <option value="20">RN</option>
+                <option value="21">RO</option>
+                <option value="22">RR</option>
+                <option value="23">SC</option>
+                <option value="24">SE</option>
+                <option value="25">SP</option>
+                <option value="26">TO</option>
+            </select>
+            <span asp-validation-for="hospUF" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="hospMun" class="control-label"></label>
+            <input asp-for="hospMun" class="form-control" />
+            <span asp-validation-for="hospMun" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="hospName" class="control-label"></label>
+            <input asp-for="hospName" class="form-control" />
+            <span asp-validation-for="hospName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br/><h2>Conclusão</h2>
+
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label asp-for="caseMun" class="control-label"></label>
+            <select asp-for="caseMun" class="form-control">
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+                <option value="Indeterminado">Indeterminado</option>
+            </select>
+            <span asp-validation-for="caseMun" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="munUf" class="control-label"></label>
+            <select asp-for="munUf" class="form-control">
+                <option selected></option>
+                <option value="1">AC</option>
+                <option value="2">AL</option>
+                <option value="3">AM</option>
+                <option value="4">AP</option>
+                <option value="5">BA</option>
+                <option value="6">CE</option>
+                <option value="7">DF</option>
+                <option value="8">ES</option>
+                <option value="9">GO</option>
+                <option value="10">MA</option>
+                <option value="11">MG</option>
+                <option value="12">MS</option>
+                <option value="13">MT</option>
+                <option value="14">PA</option>
+                <option value="15">PB</option>
+                <option value="16">PE</option>
+                <option value="17">PI</option>
+                <option value="18">PR</option>
+                <option value="19">RJ</option>
+                <option value="20">RN</option>
+                <option value="21">RO</option>
+                <option value="22">RR</option>
+                <option value="23">SC</option>
+                <option value="24">SE</option>
+                <option value="25">SP</option>
+                <option value="26">TO</option>
+            </select>
+            <span asp-validation-for="munUf" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="munCon" class="control-label"></label>
+            <input asp-for="munCon" class="form-control" />
+            <span asp-validation-for="munCon" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="neighborhood" class="control-label"></label>
+            <input asp-for="neighborhood" class="form-control" />
+            <span asp-validation-for="neighborhood" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="conClass" class="control-label"></label>
+            <select asp-for="conClass" class="form-control">
+                <option value="Dengue">Dengue</option>
+                <option value="Dengue com sinais de alarme">Dengue com sinais de alarme</option>
+                <option value="Dengue grave">Dengue grave</option>
+                <option value="Chikungunya">Chikungunya</option>
+                <option value="Descartado">Descartado</option>
+            </select>
+            <span asp-validation-for="conClass" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="criterion" class="control-label"></label>
+            <select asp-for="criterion" class="form-control">
+                <option value="Clínico-Epidemológico">Clínico-Epidemológico</option>
+                <option value="Laboratório">Laboratório</option>
+                <option value="Em investigação">Em investigação</option>
+            </select>
+            <span asp-validation-for="criterion" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="caseEvo" class="control-label"></label>
+            <select asp-for="caseEvo" class="form-control">
+                <option value="Cura">Cura</option>
+                <option value="Óbito pelo agravo">Óvito pelo agravo</option>
+                <option value="Óbito por outras causas">Óbito por outras causas</option>
+                <option value="Óbito em investigação">Óbito em investigação</option>
+            </select>
+            <span asp-validation-for="caseEvo" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="closingDate" class="control-label"></label>
+            <input asp-for="closingDate" class="form-control" />
+            <span asp-validation-for="closingDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br />
+    <div class="form-group col-md- btn-group" role="group">
+        <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+        <input type="submit" value="Cadastrar" class="btn btn-success" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

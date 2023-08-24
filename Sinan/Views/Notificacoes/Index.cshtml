@@ -1,0 +1,645 @@
+﻿@model IEnumerable<Sinan.Models.Notificacao>
+
+@{
+    ViewData["Title"] = "Notificação";
+}
+
+<h1 class="text-center">Registro de Notificações</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Idnotify)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idpacient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agravo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datenotify)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.us)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datesynptoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pregnant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateinv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.occupation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fever)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.myalgia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.headache)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vomit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nausea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.backPain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.conjunctivitis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.arthritis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.severeArthralgia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.petechiae)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.leukopenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pTieproof)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nTieproof)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.retroorbitalPain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.diabetes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hDiseases)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.liverDiseases)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ckDisease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hypertension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paDisease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aiDisease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cfsCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cfsStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cssCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cssStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prntCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prntStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dsStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ns1Collecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ns1Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.insCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.insStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rtpcrCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rtpcrStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.serotype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.srtSelect)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pHypotension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.plateletsFall)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pVomiting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scaPain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loIrritability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.moBleeding)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.piHematocrit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.alarmingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hge2cm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iLiquids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wuPulse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.convergentbp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.crTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.afrInsuficiency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tachycardia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cExtremities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lsHypotension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hematemesis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.melena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bMetrorrhagia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cnsBleeding)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.astalt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.myocarditis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aConciousness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aOrgans)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.organName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sinDateinit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patientClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recentTravel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.travelPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goTravel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.backTravel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.visitor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eeArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.areaKnlg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pMedication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pEncaminhation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ePlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.motive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iUs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iFunction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hospitalization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hospDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hospUF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hospMun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hospName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.caseMun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.munUf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.munCon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.neighborhood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.conClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.criterion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.caseEvo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.closingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idnotify)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idpacient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agravo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datenotify)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.us)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datesynptoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pregnant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateinv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.occupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fever)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.myalgia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.headache)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vomit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nausea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.backPain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conjunctivitis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.arthritis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.severeArthralgia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.petechiae)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leukopenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pTieproof)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nTieproof)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.retroorbitalPain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diabetes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hDiseases)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.liverDiseases)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ckDisease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hypertension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paDisease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aiDisease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cfsCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cfsStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cssCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cssStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prntCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prntStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dsStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ns1Collecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ns1Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.insCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.insStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rtpcrCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rtpcrStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.serotype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.srtSelect)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pHypotension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.plateletsFall)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pVomiting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.scaPain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loIrritability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.moBleeding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.piHematocrit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alarmingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hge2cm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iLiquids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wuPulse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.convergentbp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.crTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.afrInsuficiency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tachycardia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cExtremities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lsHypotension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hematemesis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.melena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bMetrorrhagia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cnsBleeding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.astalt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.myocarditis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aConciousness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aOrgans)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.organName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sinDateinit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patientClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recentTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.travelPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.goTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.backTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visitor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eeArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.areaKnlg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pMedication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pEncaminhation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ePlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.motive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iUs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iFunction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospitalization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospUF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospMun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hospName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.caseMun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.munUf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.munCon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.neighborhood)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.criterion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.caseEvo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.closingDate)
+            </td>
+            <td class="btn-group-vertical" role="group">
+                @Html.ActionLink("Exportar", "Export", "Pacientes", new{@class = "btn btn-secondary", Idpacient = item.Idpacient, Idnotify = item.Idnotify}, null)
+                @Html.ActionLink("Editar", "Edit", "Notificacoes", new{@class = "btn btn-secondary", Idnotify = item.Idnotify}, null)
+                @Html.ActionLink("Detalhes", "Details", "Notificacoes", new{@class = "btn btn-secondary", Idnotify = item.Idnotify}, null)
+                @Html.ActionLink("Deletar", "Delete", "Notificacoes", new{@class = "btn btn-secondary", Idnotify = item.Idnotify}, null)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

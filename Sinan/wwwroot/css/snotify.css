@@ -25,10 +25,12 @@
 .table {
     display:block;
     overflow-x:scroll;
+    border:1px;
+    width:100%;
 }
 
-.td{
-    width:200px;
+input, th, td, dd{
+    text-transform:uppercase;
 }
 
 

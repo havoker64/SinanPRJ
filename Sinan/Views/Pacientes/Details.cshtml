@@ -1,0 +1,147 @@
+﻿@model Sinan.Models.Paciente
+
+@{
+    ViewData["Title"] = "Detailhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="row">
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.birthdate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.birthdate)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.schooling)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.schooling)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.suscard)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.suscard)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.momname)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.momname)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.ancestry)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ancestry)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.gender)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.gender)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.height)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.height)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.weight)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.weight)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.uf)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.uf)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.municipality)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.municipality)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt class="col-md-6">
+                @Html.DisplayNameFor(model => model.pneighborhood)
+            </dt>
+            <dd class="col-md-6">
+                @Html.DisplayFor(model => model.pneighborhood)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.cep)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cep)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.zone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.zone)
+            </dd>
+        </div>
+    </dl>
+    <br />
+    <div class="btn-group" role="group">
+        <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+    </div>
+</div>
+
