@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Sinan.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Listagem";
+}
+
+<h1>Listagem de Usuários</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Usuário
+            </th>
+            <th>
+                Senha
+            </th>
+            <th>
+                Permissões
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdUsu">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUsu">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

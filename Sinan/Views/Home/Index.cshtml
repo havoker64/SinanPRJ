@@ -1,6 +1,31 @@
-﻿@{
+﻿@model Sinan.Models.Usuario
+@{
     ViewData["Title"] = "Página Inicial";
 }
 
-<h2 class="text-center">Bem vindo ao Sistema de Informação Agravos e Notificação!</h2>
+<h3 class="text-center">Bem vindo ao Sistema de Informação Agravos e Notificação!</h3>
+<br />
+<section>
+    <div class="form-box text-center border border-5">
+        <div class="form-value">
+            <form asp-action="Login">
+                <h2>Login</h2>
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input aria-label="Usuário" asp-for="Username" placeholder="Usuário" class="usu">
+                </div>
+                <br />
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input aria-label="Senha" asp-for="password"type="password" placeholder="Senha" class="pass">
+                </div>
+                <div class="forget">
+                    <a asp-controller="Usuarios" asp-action="Create">Forget Password</a></label>
+                </div>
+                <br />
+                <button class="submit btn btn-success">Log in</button>
+            </form>
+        </div>
+    </div>
+</section>
  

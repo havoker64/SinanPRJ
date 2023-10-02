@@ -1,0 +1,41 @@
+﻿@model Sinan.Models.Usuario
+
+@{
+    ViewData["Title"] = "Create";
+}
+<section>
+    <div class="form-box text-center border border-5">
+        <div class="form-value">
+            <form asp-action="Create">
+                <h2>Cadastrar Usuário</h2>
+                <div class="form-group">
+                    <input aria-label="Usuário" asp-for="Username" placeholder="Usuário" class="usu"/>
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input aria-label="Senha" asp-for="password" type="password" placeholder="Senha" class="pass"/>
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input aria-label="Senha" type="password" placeholder="Confirmar senha" class="pass" />
+                </div>
+                <!--<div class="form-check form-group">
+                    <input class="form-check-input" type="checkbox" asp-for="Adm">
+                    <label class="form-check-label" asp-for="Adm"></label>
+                </div>-->
+                <br />
+                <button class="submit btn btn-success">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div>
+    <a asp-action="Listing">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -12,5 +12,7 @@ namespace Sinan.Data
         public DbSet<Paciente> Pacientes { get; set; }
 
         public DbSet<Notificacao> Notificacoes { get; set; }
+
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

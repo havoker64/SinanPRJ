@@ -33,4 +33,15 @@ input, th, td, dd{
     text-transform:uppercase;
 }
 
+.usu{
+    text-transform:none;
+    text-align:center;
+}
+
+.pass{
+    text-transform:none;
+    text-align: center;
+}
+
+
 
