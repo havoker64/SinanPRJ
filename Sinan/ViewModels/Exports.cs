@@ -17,17 +17,25 @@ namespace Sinan.ViewModels
         [Required]
         [Display(Name = "Data de nascimento")]
         [Column("birthdate")]
-        public DateTime birthdate { get; set; }
+        public DateOnly birthdate { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Escolaridade")]
         [Column("schooling")]
         public string schooling { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "Cartão do SUS")]
         [Column("suscard")]
-        public string suscard { get; set; }
+        public string? suscard { get; set; }
+        //----------------------------------------------------------------------
+        [Display(Name = "CPF")]
+        [Column("cpf")]
+        public string? cpf { get; set; }
+        //----------------------------------------------------------------------
+        [Required]
+        [Display(Name = "Tipo Sanguíneo")]
+        [Column("bloodtype")]
+        public string bloodType { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Nome da mãe")]
@@ -44,15 +52,13 @@ namespace Sinan.ViewModels
         [Column("gender")]
         public string gender { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "Altura(cm)")]
         [Column("height")]
-        public int height { get; set; }
+        public int? height { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "Peso(gramas)")]
         [Column("weight")]
-        public int weight { get; set; }
+        public int? weight { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "UF")]
@@ -70,19 +76,26 @@ namespace Sinan.ViewModels
         public string pneighborhood { get; set; }
         //----------------------------------------------------------------------
         [Required]
-        [Display(Name = "Endereço(Rua e número da residência).")]
+        [Display(Name = "Endereço")]
         [Column("address")]
         public string address { get; set; }
         //----------------------------------------------------------------------
         [Required]
+        [Display(Name = "Número")]
+        [Column("number")]
+        public string number { get; set; }
+        //----------------------------------------------------------------------
+        [Display(Name = "Complemento")]
+        [Column("complement")]
+        public string? complement { get; set; }
+        //----------------------------------------------------------------------
         [Display(Name = "Telefone")]
         [Column("phone")]
-        public long phone { get; set; }
+        public string? phone { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "CEP")]
         [Column("cep")]
-        public string cep { get; set; }
+        public string? cep { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Zona")]
@@ -100,7 +113,7 @@ namespace Sinan.ViewModels
         [Required]
         [Display(Name = "Data da notificação")]
         [Column("dateNotify")]
-        public DateTime datenotify { get; set; }
+        public DateOnly datenotify { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "US")]
@@ -110,7 +123,7 @@ namespace Sinan.ViewModels
         [Required]
         [Display(Name = "Data dos primeiros sintomas")]
         [Column("dateSynptoms")]
-        public DateTime datesynptoms { get; set; }
+        public DateOnly datesynptoms { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Gestante")]
         [Column("pregnant")]
@@ -119,7 +132,7 @@ namespace Sinan.ViewModels
         [Required]
         [Display(Name = "Data da investigação")]
         [Column("dateInv")]
-        public DateTime dateinv { get; set; }
+        public DateOnly dateinv { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Ocupação")]
@@ -174,13 +187,9 @@ namespace Sinan.ViewModels
         [Column("leukopenia")]
         public bool leukopenia { get; set; }
         //----------------------------------------------------------------------
-        [Display(Name = "PdL positiva")]
-        [Column("pTieproof")]
-        public bool pTieproof { get; set; }
-        //----------------------------------------------------------------------
-        [Display(Name = "PdL negativa")]
-        [Column("nTieproof")]
-        public bool nTieproof { get; set; }
+        [Display(Name = "Prova do Laço")]
+        [Column("tieProof")]
+        public bool tieProof { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Dor retroorbital")]
         [Column("retroorbitalPain")]
@@ -216,7 +225,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "1° Coleta de amostra(Chikungunya)")]
         [Column("cfsCollecting")]
-        public DateTime? cfsCollecting { get; set; }
+        public DateOnly? cfsCollecting { get; set; }
 
         [Display(Name = "Status(Chikungunya)")]
         [Column("cfsStatus")]
@@ -224,7 +233,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "2° Coleta de amostra(Chikungunya)")]
         [Column("cssCollecting")]
-        public DateTime? cssCollecting { get; set; }
+        public DateOnly? cssCollecting { get; set; }
 
         [Display(Name = "Status(Chikungunya)")]
         [Column("cssStatus")]
@@ -232,7 +241,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(PRNT)")]
         [Column("prntCollecting")]
-        public DateTime? prntCollecting { get; set; }
+        public DateOnly? prntCollecting { get; set; }
 
         [Display(Name = "Status(PRNT)")]
         [Column("prntStatus")]
@@ -240,7 +249,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(Dengue)")]
         [Column("dsCollecting")]
-        public DateTime? dsCollecting { get; set; }
+        public DateOnly? dsCollecting { get; set; }
 
         [Display(Name = "Status(Dengue)")]
         [Column("dsStatus")]
@@ -248,7 +257,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(NS1)")]
         [Column("ns1Collecting")]
-        public DateTime? ns1Collecting { get; set; }
+        public DateOnly? ns1Collecting { get; set; }
 
         [Display(Name = "Status(NS1)")]
         [Column("ns1Status")]
@@ -256,7 +265,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(Isolamento)")]
         [Column("insCollecting")]
-        public DateTime? insCollecting { get; set; }
+        public DateOnly? insCollecting { get; set; }
 
         [Display(Name = "Status(Isolamento)")]
         [Column("insStatus")]
@@ -264,7 +273,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(RT-PCR)")]
         [Column("rtpcrCollecting")]
-        public DateTime? rtpcrCollecting { get; set; }
+        public DateOnly? rtpcrCollecting { get; set; }
 
         [Display(Name = "Status(RT-PCR)")]
         [Column("rtpcrStatus")]
@@ -308,7 +317,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Data do inicio dos sinais de alarme")]
         [Column("alarmingDate")]
-        public DateTime? alarmingDate { get; set; }
+        public DateOnly? alarmingDate { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Hepatomegalia >= a 2cm")]
         [Column("hge2cm")]
@@ -384,7 +393,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Data do início dos sintomas graves")]
         [Column("sinDateinit")]
-        public DateTime? sinDateinit { get; set; }
+        public DateOnly? sinDateinit { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Classificação do paciente")]
         [Column("patientClass")]
@@ -400,11 +409,11 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Data da ida")]
         [Column("goTravel")]
-        public DateTime? goTravel { get; set; }
+        public DateOnly? goTravel { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Data do retorno")]
         [Column("backTravel")]
-        public DateTime? backTravel { get; set; }
+        public DateOnly? backTravel { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Recebeu visitante da área endêmica/epidêmica?")]
         [Column("visitor")]
@@ -443,10 +452,6 @@ namespace Sinan.ViewModels
         [Column("iName")]
         public string? iName { get; set; }
         //----------------------------------------------------------------------
-        [Display(Name = "Unidade de saúde do investigador")]
-        [Column("iUs")]
-        public string? iUs { get; set; }
-        //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Função do investigador")]
         [Column("iFunction")]
@@ -458,7 +463,7 @@ namespace Sinan.ViewModels
         //----------------------------------------------------------------------
         [Display(Name = "Data da internação")]
         [Column("hospDate")]
-        public DateTime? hospDate { get; set; }
+        public DateOnly? hospDate { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "UF do Hospital")]
         [Column("hospUF")]
@@ -503,6 +508,6 @@ namespace Sinan.ViewModels
         [Required]
         [Display(Name = "Data do Encerramento")]
         [Column("closingDate")]
-        public DateTime closingDate { get; set; }
+        public DateOnly closingDate { get; set; }
     }
 }

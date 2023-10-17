@@ -41,8 +41,27 @@
         </div>
         <div class="form-group col-md-4">
             <label asp-for="suscard" class="control-label"></label>
-            <input asp-for="suscard" class="form-control" />
+            <input asp-for="suscard" class="form-control" maxlength="15"/>
             <span asp-validation-for="suscard" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="cpf" class="control-label"></label>
+            <input asp-for="cpf" class="form-control" maxlength="11"/>
+            <span asp-validation-for="cpf" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="bloodType" class="control-label"></label>
+            <select asp-for="bloodType" class="form-select">
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+            <span asp-validation-for="ancestry" class="text-danger"></span>
         </div>
         <div class="form-group col-md-4">
             <label asp-for="momname" class="control-label"></label>
@@ -128,13 +147,23 @@
             <span asp-validation-for="address" class="text-danger"></span>
         </div>
         <div class="form-group col-md-4">
+            <label asp-for="number" class="control-label"></label>
+            <input asp-for="number" class="form-control" />
+            <span asp-validation-for="number" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="complement" class="control-label"></label>
+            <input asp-for="complement" class="form-control" />
+            <span asp-validation-for="complement" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
             <label asp-for="phone" class="control-label"></label>
             <input asp-for="phone" class="form-control" />
             <span asp-validation-for="phone" class="text-danger"></span>
         </div>
         <div class="form-group col-md-4">
             <label asp-for="cep" class="control-label"></label>
-            <input asp-for="cep" class="form-control" />
+            <input asp-for="cep" class="form-control" maxlength="8"/>
             <span asp-validation-for="cep" class="text-danger"></span>
         </div>
         <div class="form-group col-md-4">
@@ -153,6 +182,7 @@
         <a class="btn btn-secondary" asp-action="Index">Voltar</a>
         <input type="submit" value="Save" class="btn btn-success" />
     </div>
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 </form>
 
 

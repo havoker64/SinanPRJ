@@ -25,6 +25,12 @@
                 SUS
             </th>
             <th>
+                CPF
+            </th>
+            <th>
+                Tipo Sanguíneo
+            </th>
+            <th>
                 Nome da mãe
             </th>
             <th>
@@ -50,6 +56,12 @@
             </th>
             <th>
                 Endereço
+            </th>
+            <th>
+                Número
+            </th>
+            <th>
+                Complemento
             </th>
             <th>
                 Telefone
@@ -82,6 +94,12 @@
                     @item.suscard
                 </td>
                 <td>
+                    @item.cpf
+                </td>
+                <td>
+                    @item.bloodType
+                </td>
+                <td>
                     @item.momname
                 </td>
                 <td>
@@ -109,6 +127,12 @@
                     @item.address
                 </td>
                 <td>
+                    @item.number
+                </td>
+                <td>
+                    @item.complement
+                </td>
+                <td>
                     @item.phone
                 </td>
                 <td>
@@ -118,13 +142,31 @@
                     @item.zone
                 </td>
                 <td class="btn-group-vertical text-center" role="group">
-                    @Html.ActionLink("Notificação", "Create", "Notificacoes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
-                    @Html.ActionLink("Detalhes", "Details", "Pacientes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
-                    @Html.ActionLink("Editar", "Edit", "Pacientes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
-                    @Html.ActionLink("Excluir", "Delete", "Pacientes", new {@class = "btn btn-secondary", Idpacient = item.Idpacient}, null)
+                    @Html.ActionLink("Notificação", "Create", "Notificacoes", new { Idpacient = item.Idpacient, gender = item.gender, birthdate = item.birthdate }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Detalhes", "Details", "Pacientes", new { Idpacient = item.Idpacient}, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Editar", "Edit", "Pacientes", new { Idpacient = item.Idpacient}, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Excluir", "Delete", "Pacientes", new { Idpacient = item.Idpacient}, new {@class = "btn btn-danger"})
                 </td>
         </tr>
 }
-        <a class="btn btn-success" asp-action="Create">Novo</a>
+        <div class="text-end">
+            <a class="btn btn-success" asp-action="Create"><strong>➕</strong></a>
+        </div>
+        <div class="row">
+            <form method="get">
+                <div class="col-md-2">
+                    <input class="form-control" type="date" name="dataNascimento" placeholder="Data de Nascimento" />
+                </div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="nome" placeholder="Nome" />
+                </div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="nomeMae" placeholder="Nome da Mãe" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                </div>
+            </form>
+        </div>
     </tbody>
 </table>

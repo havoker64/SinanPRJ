@@ -15,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-success border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/icons/brasao1.png" alt="SINAN - Maringá"/></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/icons/brasao1.png" alt="SINAN - Maringá"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,6 +28,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Notificacoes" asp-action="Index">Notificação</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                        </li>
+                        <li class="nav-item text-end">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -39,9 +45,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top text-muted custom-ft">
         <div class="container">
-            &copy; 2023 - Sinan Notify - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            © 2023 - Secretaria de Saúde do Município de Maringá - Diretoria de Vigilância em Saúde - Vigilância Epidemiológica - Todos os Direitos Reservados
         </div>
     </footer>
 

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Sinan.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listagem</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar Usuário</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Where(y => y.Username == "Admin"))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adm)
+                </td>
+                <td></td>
+            </tr>
+        }
+        @foreach (var item in Model.Where(x => x.Username != "Admin"))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adm)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", "Usuarios", new { IdUsu = item.IdUsu}, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Excluir", "Delete", "Usuarios", new { IdUsu = item.IdUsu}, new {@class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -45,6 +45,22 @@
         </div>
         <div class="col-md-6">
             <dt>
+                @Html.DisplayNameFor(model => model.cpf)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.cpf)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.bloodType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.bloodType)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
                 @Html.DisplayNameFor(model => model.momname)
             </dt>
             <dd>
@@ -113,6 +129,22 @@
             </dt>
             <dd>
                 @Html.DisplayFor(model => model.address)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.number)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.number)
+            </dd>
+        </div>
+        <div class="col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.complement)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.complement)
             </dd>
         </div>
         <div class="col-md-6">
@@ -301,18 +333,10 @@
         </div>
         <div class="col-md-6">
             <dt>
-                @Html.DisplayNameFor(model => model.pTieproof)
+                @Html.DisplayNameFor(model => model.tieProof)
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.pTieproof)
-            </dd>
-        </div>
-        <div class="col-md-6">
-            <dt>
-                @Html.DisplayNameFor(model => model.nTieproof)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.nTieproof)
+                @Html.DisplayFor(model => model.tieProof)
             </dd>
         </div>
         <div class="col-md-6">
@@ -837,14 +861,6 @@
         </div>
         <div class="col-md-6">
             <dt>
-                @Html.DisplayNameFor(model => model.iUs)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.iUs)
-            </dd>
-        </div>
-        <div class="col-md-6">
-            <dt>
                 @Html.DisplayNameFor(model => model.iFunction)
             </dt>
             <dd>
@@ -959,7 +975,7 @@
     <br />
     <div class="form-group btn-group" role="group">
         <a class="btn btn-secondary" asp-action="Index">Voltar</a>
-        <input type="submit" disabled="true" value="Save" class="btn btn-success" />
+        <input type="submit" disabled="disabled" value="Save" class="btn btn-success" />
     </div>
 </form>
 

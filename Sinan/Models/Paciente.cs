@@ -19,19 +19,18 @@ namespace Sinan.Models
         public string name { get; set; }
         //----------------------------------------------------------------------
         [Required]
-        [Display(Name="Data de nascimento")]
+        [Display(Name = "Data de Nascimento")]
         [Column("birthdate")]
-        public  DateTime birthdate { get; set; }
+        public DateOnly birthdate { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name ="Escolaridade")]
         [Column ("schooling")]
         public string schooling { get; set;}
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "Cartão do SUS")]
         [Column("suscard")]
-        public string suscard { get; set; }
+        public string? suscard { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name ="Nome da mãe")]
@@ -48,15 +47,13 @@ namespace Sinan.Models
         [Column("gender")]
         public string gender { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "Altura(cm)")]
         [Column("height")]
-        public int height { get; set; }
+        public int? height { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "Peso(gramas)")]
         [Column("weight")]
-        public int weight { get; set; }
+        public int? weight { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name ="UF")]
@@ -74,24 +71,40 @@ namespace Sinan.Models
         public string pneighborhood { get; set; }
         //----------------------------------------------------------------------
         [Required]
-        [Display(Name = "Endereço(Rua e número da residência).")]
+        [Display(Name = "Endereço")]
         [Column("address")]
         public string address { get; set; }
         //----------------------------------------------------------------------
         [Required]
+        [Display(Name = "Número")]
+        [Column("number")]
+        public string number { get; set; }
+        //----------------------------------------------------------------------
+        [Display(Name = "Complemento")]
+        [Column("complement")]
+        public string? complement { get; set; }
+        //----------------------------------------------------------------------
         [Display(Name = "Telefone")]
         [Column("phone")]
-        public long phone { get; set; }
+        public string? phone { get; set; }
         //----------------------------------------------------------------------
-        [Required]
         [Display(Name = "CEP")]
         [Column("cep")]
-        public string cep { get; set; }
+        public string? cep { get; set; }
         //----------------------------------------------------------------------
         [Required]
         [Display(Name = "Zona")]
         [Column("zone")]
         public string zone { get; set; }
+        //----------------------------------------------------------------------
+        [Required]
+        [Display(Name = "Tipo sanguíneo")]
+        [Column("bloodtype")]
+        public string bloodType { get; set; }
+        //----------------------------------------------------------------------
+        [Display(Name = "CPF")]
+        [Column("cpf")]
+        public string? cpf { get; set; }
 
     }
 }

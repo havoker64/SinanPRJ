@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OpenQA.Selenium;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,9 +15,12 @@ namespace Sinan.Models
         public string Username { get; set; }
 
         [Required][Display(Name = "Senha")][Column("password")]
-        public string password { get; set; }
+        public string Password { get; set; }
 
-        //[Display(Name = "Permissões de ADM")][Column("Adm")]
-        //public bool Adm { get; set; }
+        [Display(Name = "Permissões de ADM")][Column("admacess")]
+        public bool Adm { get; set; }
+
+        [Column("sessionid")]
+        public int? sessionId { get; set; }
     }
 }

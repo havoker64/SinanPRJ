@@ -6,6 +6,10 @@ namespace Sinan.Data
 {
     public class AppDBcontext:DbContext
     {
+        public AppDBcontext()
+        {
+        }
+
         public AppDBcontext(DbContextOptions<AppDBcontext> options) : base(options)
         {   }
 

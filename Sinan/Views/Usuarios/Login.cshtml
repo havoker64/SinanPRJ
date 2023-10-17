@@ -1,0 +1,27 @@
+﻿@model Sinan.Models.Usuario
+@{
+    Layout = "_Login";
+    ViewData["Title"] = "Página Inicial";
+}
+<section class="login">
+    <div class="form-box text-center border border-5">
+        <div class="form-value">
+            <form asp-controller="Usuarios" asp-action="Login">
+                <h2>Login</h2>
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input aria-label="Usuário" asp-for="Username" placeholder="Usuário" class="usu">
+                </div>
+                <br />
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input aria-label="Senha" asp-for="Password"type="password" placeholder="Senha" class="pass">
+                </div>
+                <br />
+                <button class="submit btn btn-success">Login</button>
+                <label></label>
+            </form>
+        </div>
+    </div>  
+</section>
+ 

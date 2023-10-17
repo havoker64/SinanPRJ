@@ -18,6 +18,11 @@ namespace Sinan.Controllers
             return View();
         }
 
+        public IActionResult Home()
+        {
+            return View();
+        }
+
         public IActionResult Notify()
         {
             return View();
@@ -28,6 +33,9 @@ namespace Sinan.Controllers
             return View();
         }
 
-
+        public IActionResult Error()
+        {
+            return View();
+        }
     }
 }

@@ -16,19 +16,19 @@ namespace Sinan.Models
         public string? Agravo { get; set; }
         //----------------------------------------------------------------------
         [Required] [Display(Name = "Data da notificação")] [Column("dateNotify")]
-        public DateTime datenotify { get; set; }
+        public DateOnly datenotify { get; set; }
         //----------------------------------------------------------------------
         [Required] [Display(Name = "US")] [Column("usNotify")]
         public string? us { get; set; }
         //----------------------------------------------------------------------
         [Required] [Display(Name = "Data dos primeiros sintomas")] [Column("dateSynptoms")]
-        public DateTime datesynptoms { get; set; }
+        public DateOnly datesynptoms { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Gestante")] [Column("pregnant")]
         public string? pregnant { get; set; }
         //----------------------------------------------------------------------
         [Required] [Display(Name = "Data da investigação")] [Column("dateInv")]
-        public DateTime dateinv { get; set; }
+        public DateOnly dateinv { get; set; }
         //----------------------------------------------------------------------
         [Required] [Display(Name = "Ocupação")] [Column("occupation")]
         public string? occupation { get; set; }
@@ -69,11 +69,8 @@ namespace Sinan.Models
         [Display(Name = "Leucopenia")] [Column("leukopenia")]
         public bool leukopenia { get; set; }
         //----------------------------------------------------------------------
-        [Display(Name = "PdL positiva")] [Column("pTieproof")]
-        public bool pTieproof { get; set; }
-        //----------------------------------------------------------------------
-        [Display(Name = "PdL negativa")] [Column("nTieproof")]
-        public bool nTieproof { get; set; }
+        [Display(Name = "Prova do laço")] [Column("tieproof")]
+        public bool tieProof { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Dor retroorbital")] [Column("retroorbitalPain")]
         public bool retroorbitalPain { get; set; }
@@ -101,43 +98,43 @@ namespace Sinan.Models
         public bool aiDisease { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "1° Coleta de amostra(Chikungunya)")] [Column("cfsCollecting")]
-        public DateTime? cfsCollecting { get; set; }
+        public DateOnly? cfsCollecting { get; set; }
 
         [Display(Name = "Status(Chikungunya)")] [Column("cfsStatus")]
         public string? cfsStatus { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "2° Coleta de amostra(Chikungunya)")] [Column("cssCollecting")]
-        public DateTime? cssCollecting { get; set; }
+        public DateOnly? cssCollecting { get; set; }
 
         [Display(Name = "Status(Chikungunya)")] [Column("cssStatus")]
         public string? cssStatus { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(PRNT)")] [Column("prntCollecting")]
-        public DateTime? prntCollecting { get; set; }
+        public DateOnly? prntCollecting { get; set; }
 
         [Display(Name = "Status(PRNT)")] [Column("prntStatus")]
         public string? prntStatus { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(Dengue)")] [Column("dsCollecting")]
-        public DateTime? dsCollecting { get; set; }
+        public DateOnly? dsCollecting { get; set; }
 
         [Display(Name = "Status(Dengue)")] [Column("dsStatus")]
         public string? dsStatus { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(NS1)")] [Column("ns1Collecting")]
-        public DateTime? ns1Collecting { get; set; }
+        public DateOnly? ns1Collecting { get; set; }
 
         [Display(Name = "Status(NS1)")] [Column("ns1Status")]
         public string? ns1Status { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(Isolamento)")] [Column("insCollecting")]
-        public DateTime? insCollecting { get; set; }
+        public DateOnly? insCollecting { get; set; }
 
         [Display(Name = "Status(Isolamento)")] [Column("insStatus")]
         public string? insStatus { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Coleta da amostra(RT-PCR)")] [Column("rtpcrCollecting")]
-        public DateTime? rtpcrCollecting { get; set; }
+        public DateOnly? rtpcrCollecting { get; set; }
 
         [Display(Name = "Status(RT-PCR)")] [Column("rtpcrStatus")]
         public string? rtpcrStatus { get; set; }
@@ -170,7 +167,7 @@ namespace Sinan.Models
         public bool piHematocrit { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Data do inicio dos sinais de alarme")] [Column("alarmingDate")]
-        public DateTime? alarmingDate { get; set; }
+        public DateOnly? alarmingDate { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Hepatomegalia >= a 2cm")] [Column("hge2cm")]
         public bool hge2cm { get; set; }
@@ -227,7 +224,7 @@ namespace Sinan.Models
         public string? organName { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Data do início dos sintomas graves")] [Column("sinDateinit")]
-        public DateTime? sinDateinit { get; set; }
+        public DateOnly? sinDateinit { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Classificação do paciente")] [Column("patientClass")]
         public string? patientClass { get; set; }
@@ -239,10 +236,10 @@ namespace Sinan.Models
         public string? travelPlace { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Data da ida")] [Column("goTravel")]
-        public DateTime? goTravel { get; set; }
+        public DateOnly? goTravel { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Data do retorno")] [Column("backTravel")]
-        public DateTime? backTravel { get; set; }
+        public DateOnly? backTravel { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Recebeu visitante da área endêmica/epidêmica?")] [Column("visitor")]
         public bool visitor { get; set; }
@@ -271,9 +268,6 @@ namespace Sinan.Models
         [Required] [Display(Name = "Nome do investigador")] [Column("iName")]
         public string? iName { get; set; }
         //----------------------------------------------------------------------
-        [Display(Name = "Unidade de saúde do investigador")] [Column("iUs")]
-        public string? iUs { get; set; }
-        //----------------------------------------------------------------------
         [Required] [Display(Name = "Função do investigador")] [Column("iFunction")]
         public string? iFunction { get; set; }
         //----------------------------------------------------------------------
@@ -281,7 +275,7 @@ namespace Sinan.Models
         public bool hospitalization { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "Data da internação")] [Column("hospDate")]
-        public DateTime? hospDate { get; set; }
+        public DateOnly? hospDate { get; set; }
         //----------------------------------------------------------------------
         [Display(Name = "UF do Hospital")] [Column("hospUF")]
         public string? hospUF { get; set; }
@@ -314,6 +308,6 @@ namespace Sinan.Models
         public string? caseEvo { get; set; }
         //----------------------------------------------------------------------
         [Required] [Display(Name = "Data do Encerramento")] [Column("closingDate")]
-        public DateTime closingDate { get; set; }
+        public DateOnly closingDate { get; set; }
     }
 }

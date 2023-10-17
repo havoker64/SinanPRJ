@@ -19,11 +19,19 @@ namespace Sinan.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(long? idPaciente)
         {
-            var notificacoes = await _context.Notificacoes.ToListAsync();
+            var notificacoes = _context.Notificacoes.AsQueryable();
 
-            return View(notificacoes);
+            if (idPaciente.HasValue)
+            {
+                notificacoes = notificacoes.Where(p => p.Idpacient == idPaciente);
+            }
+
+            // Execute a consulta e retorne os resultados para a exibição
+            var notiFilter = await notificacoes.ToListAsync();
+
+            return View(notiFilter);
         }
 
         public async Task<IActionResult> Details(long Idnotify)
@@ -37,15 +45,63 @@ namespace Sinan.Controllers
             return View(notificacao);
         }
 
-        public IActionResult Create(long Idpacient)
+        public IActionResult Create(long Idpacient, string gender, DateOnly birthdate, Notificacao noti)
         {
+            var patient = ObterDados(Idpacient, gender, birthdate); // Substitua por sua implementação de obtenção de dados.
+
+            if (patient != null)
+            {
+                // Verifique se o paciente é mulher e está na faixa etária especificada.
+                bool isFemale = patient.gender == "Feminino";
+                DateTime birth = new DateTime (patient.birthdate.Year, patient.birthdate.Month, patient.birthdate.Day, 0, 0, 0);
+                int age = CalculateAge(birth);
+
+                if (isFemale && age >= 9 && age <= 60)
+                {
+                    // Paciente elegível, o campo "pregnant" permanece habilitado e com valor padrão.
+                    ViewBag.Preg = true;
+                }
+                else
+                {
+                    // Paciente não elegível, desabilite o campo "pregnant" e defina o valor padrão.
+                    ViewBag.Preg = false;
+                }
+            }
+
             ViewBag.Idpacient = Idpacient;
             return View();
         }
 
+        private Paciente ObterDados(long Idpacient, string gender, DateOnly birthdate)
+        {
+            // Substitua este exemplo com a lógica real para obter os dados do paciente do banco de dados.
+            // Aqui, estamos retornando um paciente de exemplo hardcoded para fins ilustrativos.
+
+            return new Paciente
+            {
+                Idpacient = Idpacient,
+                gender = gender,
+                birthdate = birthdate 
+            };
+        }
+
+        private int CalculateAge(DateTime dateOfBirth)
+        {
+            DateTime currentDate = DateTime.Now;
+            int age = currentDate.Year - dateOfBirth.Year;
+
+            // Verifique se o aniversário já ocorreu neste ano.
+            if (currentDate < dateOfBirth.AddYears(age))
+            {
+                age--;
+            }
+
+            return age;
+        }
+
         public bool Duplicate (int Idpacient)
         {
-            DateTime difference = DateTime.Now.AddMonths(-2);
+            DateOnly difference = DateOnly.FromDateTime( DateTime.Now.AddMonths(-2));
             bool hasDuplicates = _context.Notificacoes.Any(n => n.Idpacient == Idpacient && n.datenotify >= difference);
 
             return hasDuplicates;
@@ -54,6 +110,8 @@ namespace Sinan.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Notificacao notificacao, int Idpacient)
         {
+            var dateNow = DateOnly.FromDateTime(DateTime.Now);
+
             if (Duplicate(Idpacient))
             {
                 ModelState.AddModelError("Duplicatas", "O paciente já tem notificações nos últimos dois meses.");
@@ -74,17 +132,16 @@ namespace Sinan.Controllers
             if (notificacao.severeArthralgia) sintomasMarcados++;
             if (notificacao.petechiae) sintomasMarcados++;
             if (notificacao.leukopenia) sintomasMarcados++;
-            if (notificacao.pTieproof) sintomasMarcados++;
-            if (notificacao.nTieproof) sintomasMarcados++;
+            if (notificacao.tieProof) sintomasMarcados++;
             if (notificacao.retroorbitalPain) sintomasMarcados++;
 
-            if (sintomasMarcados >= 3)
+            if (sintomasMarcados >= 2)
             {
                 if (ModelState.IsValid)
                 {
                     for (int i = 1; i <= 8; i++)
                     {
-                        DateTime? dataExame = null;
+                        DateOnly? dataExame = null;
                         string resultadoExame = null;
 
                         // Obter valores dos campos de data e seleção
@@ -255,7 +312,7 @@ namespace Sinan.Controllers
                         }
                     }
 
-                    if(notificacao.closingDate>DateTime.Now)
+                    if(notificacao.closingDate>dateNow)
                     {
                         ModelState.AddModelError("Datas", "A data de encerramento não pode ser maior que a data/hora atual.");
                         ViewBag.Idpacient = Idpacient;
@@ -284,7 +341,7 @@ namespace Sinan.Controllers
             }
             else
             {
-                ModelState.AddModelError("Sintomas", "É necessário marcar pelo menos 3 sintomas.");
+                ModelState.AddModelError("Sintomas", "É necessário marcar pelo menos 2 sintomas.");
                 ViewBag.Idpacient = Idpacient;
                 return View(notificacao);
             }
@@ -303,6 +360,8 @@ namespace Sinan.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Notificacao notificacao)
         {
+            var dateNow = DateOnly.FromDateTime(DateTime.Now);
+
             int sintomasMarcados = 0;
             if (notificacao.fever) sintomasMarcados++;
             if (notificacao.myalgia) sintomasMarcados++;
@@ -316,17 +375,16 @@ namespace Sinan.Controllers
             if (notificacao.severeArthralgia) sintomasMarcados++;
             if (notificacao.petechiae) sintomasMarcados++;
             if (notificacao.leukopenia) sintomasMarcados++;
-            if (notificacao.pTieproof) sintomasMarcados++;
-            if (notificacao.nTieproof) sintomasMarcados++;
+            if (notificacao.tieProof) sintomasMarcados++;
             if (notificacao.retroorbitalPain) sintomasMarcados++;
 
-            if (sintomasMarcados >= 3)
+            if (sintomasMarcados >= 2)
             {
                 if (ModelState.IsValid)
                 {
                     for (int i = 1; i <= 8; i++)
                     {
-                        DateTime? dataExame = null;
+                        DateOnly? dataExame = null;
                         string resultadoExame = null;
 
                         // Obter valores dos campos de data e seleção
@@ -482,7 +540,7 @@ namespace Sinan.Controllers
                         }
                     }
 
-                    if (notificacao.closingDate > DateTime.Now)
+                    if (notificacao.closingDate > dateNow)
                     {
                         ModelState.AddModelError("Datas", "A data de encerramento não pode ser maior que a data/hora atual.");
                         return View(notificacao);

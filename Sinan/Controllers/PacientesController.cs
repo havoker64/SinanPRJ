@@ -15,11 +15,34 @@ namespace Sinan.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string dataNascimento, string nome, string nomeMae)
         {
-            var pacientes = await _context.Pacientes.ToListAsync();
+            // Consulta o banco de dados usando os parâmetros de filtragem
+            var pacientes = _context.Pacientes.AsQueryable();
 
-            return View(pacientes);
+            if (!string.IsNullOrEmpty(dataNascimento))
+            {
+                var dataNascVal = DateOnly.FromDateTime(DateTime.Now);
+                if (DateOnly.TryParse(dataNascimento, out dataNascVal))
+                {
+                    pacientes = pacientes.Where(p => p.birthdate == dataNascVal);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(nome))
+            {
+                pacientes = pacientes.Where(p => p.name.Contains(nome));
+            }
+
+            if (!string.IsNullOrEmpty(nomeMae))
+            {
+                pacientes = pacientes.Where(p => p.momname.Contains(nomeMae));
+            }
+
+            // Execute a consulta e retorne os resultados para a exibição
+            var pacientesFiltrados = await pacientes.ToListAsync();
+
+            return View(pacientesFiltrados);
         }
 
         public async Task<IActionResult> Details(long Idpacient)
@@ -41,15 +64,20 @@ namespace Sinan.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Paciente paciente)
         {
-            if (ModelState.IsValid)
+            // Verifique se já existe um paciente com o mesmo CPF no banco de dados
+            if (!_context.Pacientes.Any(p => p.cpf == paciente.cpf))
             {
+                // Se não existir, adicione o novo paciente
                 _context.Add(paciente);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
             }
-
-            return View(paciente);
+            else
+            {
+                ModelState.AddModelError("Duplicatascpf", "Este CPF já está gravado em nossa base de dados");
+                return View(paciente);
+            }
         }
 
         public async Task<IActionResult> Edit(long Idpacient)
@@ -64,8 +92,7 @@ namespace Sinan.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Paciente paciente)
         {
-
-            if (ModelState.IsValid)
+            if (!_context.Pacientes.Any(p => p.cpf == paciente.cpf && p.Idpacient != paciente.Idpacient))
             {
                 _context.Update(paciente);
                 await _context.SaveChangesAsync();
@@ -110,6 +137,8 @@ namespace Sinan.Controllers
                 birthdate = pacient.birthdate,
                 schooling = pacient.schooling,
                 suscard = pacient.suscard,
+                cpf = pacient.cpf,
+                bloodType = pacient.bloodType,
                 momname = pacient.momname,
                 ancestry = pacient.ancestry,
                 gender = pacient.gender,
@@ -119,6 +148,8 @@ namespace Sinan.Controllers
                 municipality = pacient.municipality,
                 pneighborhood = pacient.pneighborhood,
                 address = pacient.address,
+                number = pacient.number,
+                complement = pacient.complement,
                 phone = pacient.phone,
                 cep = pacient.cep,
                 zone = pacient.zone,
@@ -142,7 +173,7 @@ namespace Sinan.Controllers
                 severeArthralgia = notify.severeArthralgia,
                 petechiae = notify.petechiae,
                 leukopenia = notify.leukopenia,
-                pTieproof = notify.pTieproof,
+                tieProof = notify.tieProof,
                 retroorbitalPain = notify.retroorbitalPain,
                 diabetes = notify.diabetes,
                 hDiseases = notify.hDiseases,
@@ -208,7 +239,6 @@ namespace Sinan.Controllers
                 ePlace = notify.ePlace,
                 motive = notify.motive,
                 iName = notify.iName,
-                iUs = notify.iUs,
                 iFunction = notify.iFunction,
                 hospitalization = notify.hospitalization,
                 hospDate = notify.hospDate,
@@ -227,5 +257,6 @@ namespace Sinan.Controllers
 
             return View(viewModel);
         }
+
     }
 }

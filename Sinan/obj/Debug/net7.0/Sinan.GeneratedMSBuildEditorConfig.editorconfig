@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Sinan
+build_property.RootNamespace = Sinan
+build_property.ProjectDir = D:\Usuarios\andreandrade\source\repos\Sinan\Sinan\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = D:\Usuarios\andreandrade\source\repos\Sinan\Sinan
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Notificacoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2Fjb2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Notificacoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2Fjb2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Notificacoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2Fjb2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Notificacoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2Fjb2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Notificacoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2Fjb2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Pacientes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Pacientes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Pacientes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Pacientes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Pacientes/Export.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVzXEV4cG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Pacientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Shared/_Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Usuarios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Usuarios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Usuarios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Usuarios/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuarios/andreandrade/source/repos/Sinan/Sinan/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dry37l6mxa

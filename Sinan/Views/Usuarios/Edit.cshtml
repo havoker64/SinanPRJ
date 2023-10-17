@@ -1,44 +1,42 @@
 ﻿@model Sinan.Models.Usuario
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
 <h1>Editar</h1>
 
 <h4>Usuario</h4>
 <hr />
-<section>
-    <div class="form-box text-center border border-5">
-        <div class="form-value">
-            <form asp-action="Edit">
-                <h2>Editar Usuário</h2>
-                <div class="form-group">
-                    <input aria-label="Usuário" asp-for="Username" placeholder="Usuário" class="usu" />
-                    <span asp-validation-for="Username" class="text-danger"></span>
-                </div>
-                <br />
-                <div class="form-group">
-                    <input aria-label="Senha" asp-for="password" type="password" placeholder="Senha" class="pass" />
-                    <span asp-validation-for="password" class="text-danger"></span>
-                </div>
-                <br />
-                <div class="form-group">
-                    <input aria-label="Senha" type="password" placeholder="Confirmar senha" class="pass" />
-                </div>
-                <!--<div class="form-check form-group">
-                    <input class="form-check-input" type="checkbox" asp-for="Adm">
-                    <label class="form-check-label" asp-for="Adm"></label>
-                </div>-->
-                <br />
-                <button class="submit btn btn-success">Cadastrar</button>
-            </form>
-        </div>
+<div class="form-box text-center border border-5">
+    <div class="form-value">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdUsu" />
+            <div class="form-group">
+                <input asp-for="Username" class="usu" placeholder="Usuário"/>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input asp-for="Password" type="password" class="pass" placeholder="Senha"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Adm" /> @Html.DisplayNameFor(model => model.Adm)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </form>
     </div>
-</section>
+</div>
 
 <div>
-    <a asp-action="Listing">Voltar</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

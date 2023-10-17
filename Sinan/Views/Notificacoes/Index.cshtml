@@ -73,10 +73,7 @@
                 @Html.DisplayNameFor(model => model.leukopenia)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.pTieproof)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.nTieproof)
+                @Html.DisplayNameFor(model => model.tieProof)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.retroorbitalPain)
@@ -274,9 +271,6 @@
                 @Html.DisplayNameFor(model => model.iName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.iUs)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.iFunction)
             </th>
             <th>
@@ -388,10 +382,7 @@
                 @Html.DisplayFor(modelItem => item.leukopenia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pTieproof)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nTieproof)
+                @Html.DisplayFor(modelItem => item.tieProof)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.retroorbitalPain)
@@ -589,9 +580,6 @@
                 @Html.DisplayFor(modelItem => item.iName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.iUs)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.iFunction)
             </td>
             <td>
@@ -634,12 +622,22 @@
                 @Html.DisplayFor(modelItem => item.closingDate)
             </td>
             <td class="btn-group-vertical" role="group">
-                @Html.ActionLink("Exportar", "Export", "Pacientes", new{@class = "btn btn-secondary", Idpacient = item.Idpacient, Idnotify = item.Idnotify}, null)
-                @Html.ActionLink("Editar", "Edit", "Notificacoes", new{@class = "btn btn-secondary", Idnotify = item.Idnotify}, null)
-                @Html.ActionLink("Detalhes", "Details", "Notificacoes", new{@class = "btn btn-secondary", Idnotify = item.Idnotify}, null)
-                @Html.ActionLink("Deletar", "Delete", "Notificacoes", new{@class = "btn btn-secondary", Idnotify = item.Idnotify}, null)
+                    @Html.ActionLink("Ficha Completa", "Export", "Pacientes", new{ Idpacient = item.Idpacient, Idnotify = item.Idnotify}, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Editar", "Edit", "Notificacoes", new{ Idnotify = item.Idnotify}, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Detalhes", "Details", "Notificacoes", new{ Idnotify = item.Idnotify}, new {@class = "btn btn-secondary"})
+                    @Html.ActionLink("Deletar", "Delete", "Notificacoes", new{ Idnotify = item.Idnotify}, new {@class = "btn btn-danger"})
             </td>
         </tr>
 }
+        <div class="row">
+            <form method="get">
+                <div class="col-md-2">
+                    <input type="number" name="idPaciente" placeholder="ID do Paciente" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                </div>
+            </form>
+        </div>
     </tbody>
 </table>

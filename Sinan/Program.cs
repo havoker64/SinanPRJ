@@ -1,13 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using Sinan.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDBcontext>(options => 
-options.UseMySql("server=localhost;initial catalog=sinan; uid=root;pwd=GMnoctua270502",
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(option=> { option.LoginPath = "/Usuarios/Login";
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    });
+
+builder.Services.AddDbContext<AppDBcontext>(options =>
+    options.UseMySql("server=localhost;initial catalog=sinan;uid=root;pwd=GMnoctua270502",
     Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.33-mysql")));
 
 var app = builder.Build();
@@ -25,10 +32,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
+app.UseAuthentication(); // Adicione a autenticação antes do Authorization
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Usuarios}/{action=Login}/{id?}");
 
 app.Run();
