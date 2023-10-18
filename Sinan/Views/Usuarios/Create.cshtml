@@ -3,23 +3,18 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Cadastrar</h1>
-
-<h4>Usuario</h4>
 <hr />
 <div class="form-box text-center border border-5">
     <div class="form-value">
         <form asp-action="Create">
+            <h2>Cadastrar</h2>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <input asp-for="Username" class="usu" placeholder="Usuário"/>
-                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
                 <input asp-for="Password" type="password" class="pass" placeholder="Senha"/>
-                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -27,15 +22,15 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <button type="submit" class="btn btn-success">Cadastrar</button>
             </div>
             @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar</a>
+<div class="form-group">
+    <button class="btn btn-secondary" asp-action="Index">Voltar</button>
 </div>
 
 @section Scripts {

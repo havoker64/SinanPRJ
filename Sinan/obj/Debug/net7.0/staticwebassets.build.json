@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8WOcEpelFQSWEryGqjEwFXzX9uxsTD1dl6OdSXZ7xTo=",
+  "Hash": "3AKIQ7nkvCoi3D40ACL+JQbXAUHJyM/5UyzZDA9ECNU=",
   "Source": "Sinan",
   "BasePath": "_content/Sinan",
   "Mode": "Default",
@@ -102,12 +102,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\icons\\brasao1.png",
+      "Identity": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\icons\\prefeitura.png",
       "SourceId": "Sinan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\",
       "BasePath": "_content/Sinan",
-      "RelativePath": "icons/brasao1.png",
+      "RelativePath": "icons/prefeitura.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,7 +116,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\icons\\brasao1.png"
+      "OriginalItemSpec": "wwwroot\\icons\\prefeitura.png"
     },
     {
       "Identity": "D:\\Usuarios\\andreandrade\\source\\repos\\Sinan\\Sinan\\wwwroot\\js\\site.js",
